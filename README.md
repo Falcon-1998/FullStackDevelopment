@@ -17,3 +17,4 @@ Notes :
 7) Head : <head></head> This contains metadata about the page like language, stylesheet links and other injectors in a page
 8) Body : <body></body> Eveything is written here all your tags.
 9) html tag : html tag for the whole document, also <!doctype html> to tell we use html5
+I have completed first 30 mins of this course by the second commit
