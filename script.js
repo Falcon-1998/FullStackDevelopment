@@ -23,3 +23,7 @@ function login() {
         errorMsg.style.display = 'block';
     }
 }
+favouriteMovieGenre('Cowboy')
+favouriteFruit('Mango')
+favouritMode("Dark")
+favouriteEdgeStyle("Rounded")
