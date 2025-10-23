@@ -1,0 +1,27 @@
+.searchbox{ 
+    text-align: center;
+    margin-top: 150px;
+}
+.text {
+    margin-top: 20px;
+    text-align: center;
+    width: 400px;
+    height: 30px;
+    margin: 0 auto; /* <-- centers the .text block horizontally */
+}
+.text input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box; /* include padding/border in width */
+    display: block;         /* ensure it behaves like a block-level element */
+}
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+.language {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
