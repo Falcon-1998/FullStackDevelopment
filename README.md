@@ -29,3 +29,6 @@ CSS :
 link tag : it is used to link other resources to your webpage mainly css, but can do other stuff
 rel = defines natuure of relationship of  linked document (in this case css) to our document
 href = where the resource is, path, location.
+ 
+body { } Inside this block in a css file you can configure the stlyes for the body tag
+
