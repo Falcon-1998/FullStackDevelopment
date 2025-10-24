@@ -32,3 +32,14 @@ href = where the resource is, path, location.
  
 body { } Inside this block in a css file you can configure the stlyes for the body tag
 
+class property : [Most used one] you can assign any div or inp, button, label a class tag and then can set properties for that class.
+
+text-align : Using this I was able to move google logo to center.
+margin-top,bottom,right,left props can be used based to put space from other docs.
+display : this is nothing but type of box your element will sit in.
+
+Q1) AFTER ADDING width my text box moves ot the left is not coming in the center why?
+Ans) You're making the .text element a fixed-width block, so the block itself stays left-aligned by default. text-align:center centers inline content inside the block, but it does not center the block. To center the box itself, either give it automatic horizontal margins or center with flexbox.
+
+Q2) why textbox in not becoming bigger? after I make it 400px instead of 200px
+Ans) Your .text container is 400px, but the input inside it keeps its own default width. Make the input fill the container.
