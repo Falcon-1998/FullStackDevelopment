@@ -36,10 +36,42 @@ class property : [Most used one] you can assign any div or inp, button, label a 
 
 text-align : Using this I was able to move google logo to center.
 margin-top,bottom,right,left props can be used based to put space from other docs.
+margins collapse onto each other
 display : this is nothing but type of box your element will sit in.
+ display-inline means you can add an element next to your element like a horizontal list
+ display-block takes up all the space inside that div.
 
 Q1) AFTER ADDING width my text box moves ot the left is not coming in the center why?
 Ans) You're making the .text element a fixed-width block, so the block itself stays left-aligned by default. text-align:center centers inline content inside the block, but it does not center the block. To center the box itself, either give it automatic horizontal margins or center with flexbox.
 
 Q2) why textbox in not becoming bigger? after I make it 400px instead of 200px
 Ans) Your .text container is 400px, but the input inside it keeps its own default width. Make the input fill the container.
+
+Q3) How to center an element?
+Ans)     display: block;   // first thing is you need the whole block inside the div [div in which you want to center]
+         margin-left: auto;
+         margin-right: auto;
+         
+Padding : close relative of margin, it is margin for the things inside a div means, margin inversed. padding will add space inbetween the div and it's elements.  
+The Box Model : 
+1) Margin       2) Border       3) Padding      4) Content 
+
+difference b/w background-color and color
+color referes to color of test and objects inside that div.
+
+foint-weight = controls thickness of your text.
+border-radius = making it circular0
+border : set the thicknessof boder colorofBorder
+
+FlexBox :  Why do I need flexbox ---
+ the above trick to center the elements will not work if you have two inline elements, they will move to the left
+Two ways to take them to center ; using text-align -- it is not flexible OR use a flexbox
+ Use : .buttons {
+      display: flex; // for flexbox
+      flex-direction: row;
+      justify-content: center; // centers children horizontally
+      align-items: center // centers children vertically
+      gap: 20px; // decides gap between items can be used insted of margin which you will have to set for each element.``    
+    }
+    This flex-direction is also useful.
+

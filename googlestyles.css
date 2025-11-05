@@ -1,27 +1,45 @@
 .searchbox{ 
-    text-align: center;
+    display: block;
     margin-top: 150px;
+    background-color: burlywood;
+    padding: 20px;
 }
-.text {
+.Google_2015_logo {
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+}
+.Google_Search_bar {
     margin-top: 20px;
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
     width: 400px;
     height: 30px;
-    margin: 0 auto; /* <-- centers the .text block horizontally */
-}
-.text input {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box; /* include padding/border in width */
-    display: block;         /* ensure it behaves like a block-level element */
+    border: 2px solid gray;
+    border-radius: 10px;
+
 }
 .buttons {
-    text-align: center;
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color:beige
+}
+.SearchButton, .LuckyButton {
+  
+    padding: 3px;
+    font-size: 12px;
+    border: 1px solid gray;
+    background-color: lightgreen;
+    border-radius: 10px;
+    cursor: pointer;
 }
 .language {
     text-align: center;
-    margin-top: 30px;
+    padding: 30px;
+    background-color: lightgray;
 }
 
 
