@@ -60,7 +60,7 @@ difference b/w background-color and color
 color referes to color of test and objects inside that div.
 
 foint-weight = controls thickness of your text.
-border-radius = making it circular0
+border-radius = making it circular
 border : set the thicknessof boder colorofBorder
 
 FlexBox :  Why do I need flexbox ---
@@ -74,4 +74,13 @@ Two ways to take them to center ; using text-align -- it is not flexible OR use 
       gap: 20px; // decides gap between items can be used insted of margin which you will have to set for each element.``    
     }
     This flex-direction is also useful.
+
+Now Remember if you see elements are not fixing right, like they have too much space in between (horizontally or vertically) then 
+check for margins and padding, see if it is not automatic, You should be assigning it.
+
+
+margin : top right left right
+paddding : top right left right
+margin : t/b l/r
+same for padding :: This is for saving lines of code
 
