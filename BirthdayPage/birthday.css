@@ -1,0 +1,41 @@
+body{
+    font-family: 'Happy Monkey', cursive;
+    background-color: #a2d0ff;
+    color: #ffffff;
+}
+.topmost{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1, h2, h3 ,h4, p {
+text-shadow: 0px 0px 5px #000000;
+}
+#MainImage{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #efb0c9;
+}
+.bday-age{
+    background-color:  #efb0c9;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+.wishes-section{
+    margin-top: 20px;
+    text-align: center;
+}
+.first_gift{
+    margin: auto;
+    width: 600px;
+    height: 600px;
+    border : 5PX solid #ffffff;
+    border-radius: 5px;
+    background-image: url("./gold-ribbon-on-pink-background-gift-box-cover-vector-4659249.avif");
+    background-size: cover;
+}
+.first_gift:hover{
+   
+    
+}
