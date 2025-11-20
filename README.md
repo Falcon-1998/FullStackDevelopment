@@ -34,6 +34,7 @@ body { } Inside this block in a css file you can configure the stlyes for the bo
 
 class property : [Most used one] you can assign any div or inp, button, label a class tag and then can set properties for that class.
 
+line-height :  recongnized by more browsers than this one.
 text-align : Using this I was able to move google logo to center.
 margin-top,bottom,right,left props can be used based to put space from other docs.
 margins collapse onto each other
@@ -57,9 +58,9 @@ The Box Model :
 1) Margin       2) Border       3) Padding      4) Content 
 
 difference b/w background-color and color
-color referes to color of test and objects inside that div.
+color referes to color of text and objects inside that div.
 
-foint-weight = controls thickness of your text.
+font-weight = controls thickness of your text.
 border-radius = making it circular
 border : set the thicknessof boder colorofBorder
 
@@ -83,4 +84,35 @@ margin : top right left right
 paddding : top right left right
 margin : t/b l/r
 same for padding :: This is for saving lines of code
+
+
+SPACE EXPLORATION SITE
+
+1)  background-image: url("../../Pictures/guillermo-ferla-Oze6U2m1oYU-unsplash.jpg"); 
+     TO get the background image in the 
+     background-size : cover ;  to contain the image.
+2) Using fonts ::: 
+  Now you can use font-family property to set the font
+  font-weight sets bold, other stuff
+  If you want to use custom fonts, you need their tff files
+  and then you need to to @font-face like this ::
+     @font-face{
+      src : url(""Corolene.tff); // location to tff file, must download
+      font-family : Corlene ;  // you can give name to your font family 
+      // This all are in the css file
+     }
+3) Inherit tag : border : inherit , padding : inherit    
+4) span tag :: unlike div it takes on the required space
+
+5) id vs class :: id is used when we are sure we use it only once, but classes can be reused.
+Resources ::: Giphy.com for gifs and Cooler for finding colors.
+6) Text Shadow :-- text-shadow : -5px 5px black
+                (left-right) x-axis   (up-down) y    blur   color of shadow1
+
+7) justify-content vs align-items in flexbox : one is horizontal align other is vertical
+    justfy-content : start, center, end, space-around, space-evenely, space-inbetween
+    align-items : start, center, end
+8) If you change the flex direction from row to column, then jusify-content --> vertical. , align-items --> horizontal , SO inversion occurs
+
+
 
