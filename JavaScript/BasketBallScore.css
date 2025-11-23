@@ -1,0 +1,64 @@
+body {
+    background: #e8f0ee;
+    font-family: 'Arial', sans-serif;
+}
+
+.scoreboard {
+    background: #1a2952;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    width: 500px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 32px 24px 32px;
+}
+
+.score-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+.score-section h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.score-display {
+    background: #111;
+    color: #ff4c4c;
+    font-family: 'Digital-7', 'Courier New', monospace;
+    font-size: 4rem;
+    padding: 24px 0;
+    width: 120px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.score-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.score-btn {
+    background: none;
+    border: 2px solid #bfc7d5;
+    color: #bfc7d5;
+    font-size: 1.2rem;
+    width: 44px;
+    height: 38px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.score-btn:hover {
+    background: #bfc7d5;
+    color: #1a2952;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basketball Scoreboard</title>
+    <link rel="stylesheet" href="BasketBallScore.css">
+</head>
+<body>
+    <div class="scoreboard">
+        <div class="score-section">
+            <h2>HOME</h2>
+            <div class="score-display" id="home-score">0</div>
+            <div class="score-buttons">
+                <button class="score-btn" onclick="updateScore('home', 1)">+1</button>
+                <button class="score-btn" onclick="updateScore('home', 2)">+2</button>
+                <button class="score-btn" onclick="updateScore('home', 3)">+3</button>
+            </div>
+        </div>
+        <div class="score-section">
+            <h2>GUEST</h2>
+            <div class="score-display" id="guest-score">0</div>
+            <div class="score-buttons">
+                <button class="score-btn" onclick="updateScore('guest', 1)">+1</button>
+                <button class="score-btn" onclick="updateScore('guest', 2)">+2</button>
+                <button class="score-btn" onclick="updateScore('guest', 3)">+3</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let homeScore = 0;
+        let guestScore = 0;
+        function updateScore(team, points) {
+            if (team === 'home') {
+                homeScore += points;
+                document.getElementById('home-score').textContent = homeScore;
+            } else {
+                guestScore += points;
+                document.getElementById('guest-score').textContent = guestScore;
+            }
+        }
+    </script>
+</body>
+</html>

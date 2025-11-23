@@ -1,3 +1,83 @@
+This is a tutorial repo for my course
+Notes : 
+1) image tag :  <img id="This is a unique identifier for this object in entire document"src="source/path of the image" width ="" height="" alt="alternate This is a description of image, when it is not displayed due to some error">
+
+---
+## Industry Standard Frontend Project Reference
+
+### 1. File Structure
+
+```
+project-root/
+│
+├── public/                # Static assets (images, fonts, favicon, etc.)
+│   ├── images/
+│   └── ...
+│
+├── src/                   # Source code
+│   ├── index.html         # Main HTML file
+│   ├── styles/            # CSS/SASS files
+│   │   └── main.css
+│   ├── scripts/           # JS files
+│   │   └── app.js
+│   └── components/        # Reusable HTML/JS/CSS components (optional)
+│
+├── package.json           # Project metadata & dependencies (for npm projects)
+└── README.md              # Project documentation
+```
+
+### 2. Naming Conventions
+
+- **Files:**  
+    - HTML: `index.html`, `about.html`
+    - CSS: `main.css`, `navbar.css`
+    - JS: `app.js`, `scoreboard.js`
+- **Folders:**  
+    - Lowercase, hyphen-separated: `score-board`, `user-profile`
+- **Classes/IDs:**  
+    - CSS classes: `score-display`, `score-btn` (kebab-case)
+    - JS variables: `homeScore`, `guestScore` (camelCase)
+- **Components:**  
+    - React: `ScoreBoard.jsx`, `HomePage.jsx` (PascalCase)
+
+### 3. Code Quality & Cleanliness
+
+**Parameters to judge frontend code:**
+- Separation of concerns: HTML, CSS, JS in separate files.
+- Modularity: Reusable components/functions.
+- Naming: Clear, consistent, descriptive names.
+- Accessibility: Use semantic HTML, ARIA attributes.
+- Responsiveness: Works on all screen sizes.
+- Performance: Minimize DOM manipulation, optimize assets.
+- Consistency: Use a style guide (Prettier, ESLint).
+- Documentation: Comments, README, code docs.
+- Testing: Unit/integration tests (Jest, Cypress).
+- Version control: Use Git, meaningful commit messages.
+
+### 4. How to Make Code Cleaner
+
+- Use linters: ESLint for JS, Stylelint for CSS.
+- Prettify code: Use Prettier for formatting.
+- Avoid inline styles/scripts: Use external files.
+- DRY principle: Don’t Repeat Yourself—reuse code.
+- Comment wisely: Explain “why”, not “what”.
+- Remove dead code: Delete unused files/functions.
+- Follow a style guide: Airbnb, Google, or your team’s.
+
+### 5. Standard Rules/Best Practices
+
+- Semantic HTML: Use `<header>`, `<main>`, `<footer>`, etc.
+- BEM for CSS: Block__Element--Modifier naming.
+- Accessibility: Alt text for images, keyboard navigation.
+- Mobile-first: Design for small screens first.
+- Optimize assets: Compress images, minify CSS/JS.
+- Use frameworks/libraries: React, Vue, Angular for large projects.
+- Automate builds: Use Webpack, Vite, Parcel.
+
+---
+**Summary:**  
+A good frontend project is modular, readable, maintainable, accessible, and performant.  
+Follow separation of concerns, use clear naming, document your code, and automate quality checks.
 # FullStackDevelopment
 This is a tutorial repo for my course
 Notes : 
@@ -105,6 +185,7 @@ SPACE EXPLORATION SITE
 4) span tag :: unlike div it takes on the required space
 
 5) id vs class :: id is used when we are sure we use it only once, but classes can be reused.
+you can use both, every property of class will be overriden by id.
 Resources ::: Giphy.com for gifs and Cooler for finding colors.
 6) Text Shadow :-- text-shadow : -5px 5px black
                 (left-right) x-axis   (up-down) y    blur   color of shadow1
@@ -113,6 +194,11 @@ Resources ::: Giphy.com for gifs and Cooler for finding colors.
     justfy-content : start, center, end, space-around, space-evenely, space-inbetween
     align-items : start, center, end
 8) If you change the flex direction from row to column, then jusify-content --> vertical. , align-items --> horizontal , SO inversion occurs
+
+
+Birthday Card ::::
+
+1) Put the topmost section in the center using display = flex, flex-direction=column, and align-items: center. 
 
 
 

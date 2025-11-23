@@ -1,6 +1,6 @@
 body{
     font-family: 'Happy Monkey', cursive;
-    background-color: #a2d0ff;
+    background : linear-gradient(#a2d0ff,#efb0c9);
     color: #ffffff;
 }
 .topmost{
@@ -26,7 +26,7 @@ text-shadow: 0px 0px 5px #000000;
     margin-top: 20px;
     text-align: center;
 }
-.first_gift{
+.gifts{
     margin: auto;
     width: 600px;
     height: 600px;
@@ -34,8 +34,24 @@ text-shadow: 0px 0px 5px #000000;
     border-radius: 5px;
     background-image: url("./gold-ribbon-on-pink-background-gift-box-cover-vector-4659249.avif");
     background-size: cover;
+    background-position: center center;   /* center crop (symmetric) */
+    background-repeat: no-repeat;
 }
-.first_gift:hover{
-   
-    
+#first_gift:hover{
+   background-image: url("./firstPicGif.gif");
 }
+#second_gift:hover{
+   background-image: url("./second_img.gif");
+}
+#third_gift:hover{
+   background-image: url("./third_img.gif");
+}#fourth_gift:hover{
+   background-image: url("./fourth_img.gif");
+}
+#fifth_gift:hover{
+   background-image: url("./fifth_img.gif");
+}
+#fifth_gift{
+   height: 350px
+}
+
