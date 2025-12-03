@@ -200,5 +200,31 @@ Birthday Card ::::
 
 1) Put the topmost section in the center using display = flex, flex-direction=column, and align-items: center. 
 
+/// Java Script has Started, Black-Jack game----
+
+Box-shadow - like text-shadow, it is property for a recatangular box, (faster)
+Drop- shadow :  for dynamic elements, irregular shape, (slower, need to calculate the shadow for rendering).
+
+@media <media-type> and (<media-feature>) { // css rules to apply when conditions are met}
+
+called At-rule OR @-rule is for responsive web design, allows different styles based on env and device. 
+
+There are a lot of at rules. like @import -- alows you to import external css files.
+
+@import url("styles.css");
+@media screen and (max-width: 600px) {
+      body {
+        background-color: lightblue;
+      }
+    }
+
+ all import rules must apear before any other rules in stylesheet except for @charset   
 
 
+Also to get to elements of html we have learned 2 methods uptil now ::
+document.getElementById , document.querySelector : returns the first matching element encountered in the DOM traversal.
+
+bracket notation vs dot notation javascript
+
+bracket notation is required when : the property name is not a valid JavaScript identifier (e.g., contains spaces, hyphens, or starts with a number).
+OR when accessing properties dynamically, where the property name is stored in a variable or determined at runtime.
