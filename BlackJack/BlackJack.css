@@ -1,0 +1,70 @@
+body {
+    background: #418a2f;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.blackjack-container {
+    max-width: 480px;
+    margin: 60px auto;
+    padding: 32px 24px;
+    background: #357a24;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+h1 {
+    color: #d4a73a;
+    font-size: 2.8rem;
+    margin-bottom: 24px;
+}
+
+h4, #message-el {
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 18px 0 8px 0;
+}
+
+#cards-el, #sum-el {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin: 28px 0;
+}
+
+button {
+    background: #d4a73a;
+    color: #444;
+    font-size: 1.2rem;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 600;
+}
+
+button:disabled {
+    background: #a88c3a;
+    color: #eee;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+    .blackjack-container {
+        max-width: 98vw;
+        padding: 16px 4vw;
+    }
+    button {
+        padding: 10px 12px;
+        font-size: 1rem;
+    }
+}
