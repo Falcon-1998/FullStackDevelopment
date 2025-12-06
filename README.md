@@ -228,3 +228,88 @@ bracket notation vs dot notation javascript
 
 bracket notation is required when : the property name is not a valid JavaScript identifier (e.g., contains spaces, hyphens, or starts with a number).
 OR when accessing properties dynamically, where the property name is stored in a variable or determined at runtime.
+
+
+1. :active (clicked state)
+:active applies styles only while an element is being pressed (e.g., mouse button is down on a button).
+
+Often used with :hover to make buttons feel “pressed” when clicked.
+
+Example:
+
+css
+button {
+  background: #22c55e;
+  box-shadow: 0 10px 24px rgba(34, 197, 94, 0.4);
+}
+
+button:active {
+  transform: translateY(1px);   /* move slightly down */
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.5); /* smaller shadow */
+}
+2. transition (smooth change)
+transition makes property changes animate over time instead of switching instantly.
+
+Common sub‑parts (usually written together in the shorthand):
+
+transition-property: which CSS properties should animate (background, transform, box-shadow, all, etc.).
+
+transition-duration: how long the animation takes (0.2s, 500ms).
+
+transition-timing-function: speed curve (ease, linear, ease-in, ease-out, cubic-bezier(...)).
+
+transition-delay: wait time before the animation starts.
+
+Shorthand example used for a button:
+
+css
+button {
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+Now any change to background, transform, or box-shadow (through :hover, :active, a class change, etc.) will animate smoothly.
+
+3. transform (move / scale / rotate / skew)
+transform visually changes an element’s shape or position without affecting the layout around it.
+
+Common transform functions:
+
+translateX(px) / translateY(px) / translate(x, y) – move.
+
+scale(factor) / scaleX() / scaleY() – grow or shrink.
+
+rotate(angle) – rotate (e.g., rotate(10deg)).
+
+skewX() / skewY() – slant.
+
+Example: hover + active with transforms and transitions:
+
+css
+button {
+  transform: translateY(0);
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+/* mouse over: lift up a bit */
+button:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+/* mouse down: look pressed */
+button:active {
+  transform: translateY(0); /* back down */
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.5);
+}
+You can also combine multiple transforms:
+
+css
+.box:hover {
+  transform: translateY(-5px) scale(1.05) rotate(2deg);
+}
+This gives you a powerful pattern:
+
+:hover / :active define states,
+
+transform defines how the element moves/changes,
+
+transition makes those state changes smooth and animated.
