@@ -1,57 +1,255 @@
+/* Birthday page styles - pastel feminine palette and subtle animations */
 body{
     font-family: 'Happy Monkey', cursive;
-    background : linear-gradient(#a2d0ff,#efb0c9);
-    color: #ffffff;
+    /* soft pastel gradient tailored for a feminine birthday theme */
+    background: linear-gradient(135deg, #ffe7f0 0%, #ffd6e8 30%, #f7e6ff 60%, #e6f7ff 100%);
+    color: #2e1b2e; /* dark plum for readable headings */
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
 .topmost{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 40px 20px;
 }
-h1, h2, h3 ,h4, p {
-text-shadow: 0px 0px 5px #000000;
+
+h1, h2, h3, h4, p {
+    text-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    margin: 6px 0;
 }
+
+h1 {
+    color: #c95aa3; /* gentle raspberry */
+    font-size: 3rem;
+    margin-top: 8px;
+}
+
+h2 {
+    color: #8b5fbf; /* lavender accent */
+    font-size: 2rem;
+}
+
 #MainImage{
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
-    border: 5px solid #efb0c9;
+    border: 6px solid rgba(255,255,255,0.8);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    /* subtle floating animation */
+    animation: float 6s ease-in-out infinite;
 }
+
 .bday-age{
-    background-color:  #efb0c9;
-    padding: 3px 10px;
-    border-radius: 5px;
+    background-color:  rgba(255, 230, 240, 0.9);
+    color: #6b2b4d;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+    display: inline-block;
 }
+
 .wishes-section{
     margin-top: 20px;
     text-align: center;
+    max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 }
-.gifts{
-    margin: auto;
-    width: 600px;
-    height: 600px;
-    border : 5PX solid #ffffff;
-    border-radius: 5px;
+
+.gifts {
+    margin: 28px auto;
+    width: 560px;
+    height: 420px;
+    border: 6px solid rgba(255,255,255,0.9);
+    border-radius: 12px;
     background-image: url("./gold-ribbon-on-pink-background-gift-box-cover-vector-4659249.avif");
     background-size: cover;
-    background-position: center center;   /* center crop (symmetric) */
+    background-position: center center;
     background-repeat: no-repeat;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    transition: transform 400ms ease, box-shadow 400ms ease;
+    position: relative;
+    overflow: hidden;
+        display: flex;
+        justify-content: center; /* ensure inner content centers */
+        align-items: center;
 }
-#first_gift:hover{
-   background-image: url("./firstPicGif.gif");
+
+    /* curtain overlay effect: two panels that part on hover */
+    .gifts::before,
+    .gifts::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+        background: linear-gradient(180deg, rgba(51,17,51,0.95), rgba(255,255,255,0.05));
+        z-index: 20;
+        transition: transform 450ms cubic-bezier(.2,.8,.2,1);
+        pointer-events: none;
+    }
+    .gifts::before { left: 0; transform: translateX(0); }
+    .gifts::after { right: 0; transform: translateX(0); }
+
+    /* On hover open curtains (panels slide out) */
+    .gifts:hover::before { transform: translateX(-100%); }
+    .gifts:hover::after { transform: translateX(100%); }
+
+    /* start a subtle bounce after curtains start opening */
+    .gifts:hover {
+        animation: gift-bounce 900ms ease-in-out 400ms infinite;
+        /* ensure animated element is above page but below curtains */
+        z-index: 10;
+    }
+
+    @keyframes gift-bounce {
+        0% { transform: translateY(0); }
+        40% { transform: translateY(-12px); }
+        60% { transform: translateY(0); }
+        100% { transform: translateY(0); }
+    }
+
+    /* Support hover GIFs on legacy .gifts elements (HTML uses ids) */
+    #first_gift:hover { background-image: url("./firstPicGif.gif"); background-size: contain; background-color: #fff; }
+    #second_gift:hover { background-image: url("./second_img.gif"); background-size: contain; background-color: #fff; }
+    #third_gift:hover { background-image: url("./third_img.gif"); background-size: contain; background-color: #fff; }
+    #fourth_gift:hover { background-image: url("./fourth_img.gif"); background-size: contain; background-color: #fff; }
+    #fifth_gift:hover { background-image: url("./fifth_img.gif"); background-size: contain; background-color: #fff; }
+    #sixth_gift:hover { background-image: url("./1000099662.JPG"); background-size: contain; background-color: #fff; }
+
+    /* center main image as block */
+    #MainImage { display: block; margin: 12px auto; }
+
+/* General gift tile style — apply to each gift container */
+.gift-tile {
+    width: 260px;
+    height: 260px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgba(255,255,255,0.06);
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    margin: 8px;
+    transition: transform 350ms ease, box-shadow 350ms ease, filter 350ms ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
-#second_gift:hover{
-   background-image: url("./second_img.gif");
+
+.gift-tile:hover{
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 22px 48px rgba(0,0,0,0.18);
+    filter: saturate(1.05);
 }
-#third_gift:hover{
-   background-image: url("./third_img.gif");
-}#fourth_gift:hover{
-   background-image: url("./fourth_img.gif");
+
+/* When hovering a specific gift tile, show the gif and fit it without cropping */
+.gift-tile.gift-1:hover { background-image: url("./firstPicGif.gif"); background-size: contain; background-color: #fff; }
+.gift-tile.gift-2:hover { background-image: url("./second_img.gif"); background-size: contain; background-color: #fff; }
+.gift-tile.gift-3:hover { background-image: url("./third_img.gif"); background-size: contain; background-color: #fff; }
+.gift-tile.gift-4:hover { background-image: url("./fourth_img.gif"); background-size: contain; background-color: #fff; }
+.gift-tile.gift-6:hover { background-image: url("./fifth_img.gif"); background-size: contain; background-color: #fff; }
+.gift-tile.gift-5:hover { background-image: url("./1000099662.JPG"); background-size: contain; background-color: #fff; }
+
+/* subtle pulse on important elements (e.g., CTA) */
+.cta-pulse {
+    animation: pulse 2.6s infinite ease-in-out;
 }
-#fifth_gift:hover{
-   background-image: url("./fifth_img.gif");
+
+/* Keyframes */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
 }
-#fifth_gift{
-   height: 350px
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
 }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .gifts { width: 92%; height: auto; padding: 18px; }
+    .gift-tile { width: 46%; height: 200px; }
+    #MainImage { width: 140px; height: 140px; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.4rem; }
+    .gift-tile { width: 100%; height: 160px; display: block; margin: 10px 0; }
+    .gifts { padding: 12px; }
+}
+
+/* Balloons: appear on load and float up */
+.balloon-container {
+    position: fixed;
+    pointer-events: none;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0;
+    overflow: visible;
+    z-index: 999;
+}
+.balloon {
+    position: absolute;
+    bottom: -120px; /* start below viewport */
+    width: 46px;
+    height: 64px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    transform-origin: bottom center;
+    background: linear-gradient(135deg, #ff9ac2, #ff6fb1);
+    opacity: 0;
+    animation: rise var(--dur, 6s) linear var(--delay, 0s) forwards;
+}
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    width: 2px;
+    height: 18px;
+    background: rgba(0,0,0,0.12);
+    transform: translateX(-50%);
+}
+
+/* horizontal sway applied separately */
+.balloon.sway {
+    animation-name: rise, sway;
+    animation-duration: var(--dur, 6s), var(--swayDur, 3s);
+    animation-timing-function: linear, ease-in-out;
+    animation-delay: var(--delay, 0s), var(--delay, 0s);
+    animation-fill-mode: forwards, none;
+    animation-iteration-count: 1, infinite;
+}
+
+@keyframes rise {
+    0% { transform: translateY(0) scale(0.9); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(360deg) scale(1); opacity: 0.95; }
+}
+
+@keyframes sway {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-18px); }
+    50% { transform: translateX(8px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+/* color variations for balloons */
+.balloon.color-1 { background: linear-gradient(135deg,#ff9ac2,#ff6fb1); }
+.balloon.color-2 { background: linear-gradient(135deg,#ffd6a5,#ffb07a); }
+.balloon.color-3 { background: linear-gradient(135deg,#c6f2ff,#7ee0ff); }
+.balloon.color-4 { background: linear-gradient(135deg,#e9d6ff,#cbb0ff); }
+.balloon.color-5 { background: linear-gradient(135deg,#ffd0e6,#ff9ad1); }
 
