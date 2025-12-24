@@ -313,3 +313,38 @@ This gives you a powerful pattern:
 transform defines how the element moves/changes,
 
 transition makes those state changes smooth and animated.
+
+
+Java Script: 
+
+### setTimeout and clearTimeout — quick notes
+
+- setTimeout(fn, ms) schedules `fn` to run after `ms` milliseconds and returns a timer id (in browsers a number; in Node a Timeout object).
+- clearTimeout(timerId) cancels the scheduled callback associated with `timerId`.
+
+Usage example:
+```javascript
+// schedule
+const timerId = setTimeout(() => {
+  console.log('This runs after 2 seconds');
+}, 2000);
+
+// cancel before it runs
+clearTimeout(timerId);
+```
+
+Why you must pass the setTimeout return value to clearTimeout:
+- The value returned by setTimeout uniquely identifies that scheduled callback. clearTimeout(timerId) removes only that specific timer.
+- If you don't pass the timer id (or pass the wrong id), the intended callback will still execute. Multiple timers are independent — each needs its own id if you want to cancel them selectively.
+- Common pattern (debounce): store the timer id in a variable and clear it before creating a new one so only the latest scheduled action runs.
+```javascript
+let debounceTimer;
+function onInput() {
+  clearTimeout(debounceTimer);               // cancel previous pending action
+  debounceTimer = setTimeout(doSearch, 300); // schedule new one
+}
+```
+
+Notes:
+- In browsers the id is numeric; in Node it's a Timeout object — both are accepted by clearTimeout.
+- Always keep the timer id in a scope where you can call clearTimeout when needed.
