@@ -348,3 +348,300 @@ function onInput() {
 Notes:
 - In browsers the id is numeric; in Node it's a Timeout object — both are accepted by clearTimeout.
 - Always keep the timer id in a scope where you can call clearTimeout when needed.
+
+Big picture
+JavaScript runtime in the browser = single-threaded call stack + host features (Web APIs) + queues + event loop.
+
+Concurrency is simulated by delegating work to Web APIs and scheduling callbacks via queues.
+
+Call stack
+Call stack = where JS executes functions, one at a time (LIFO).
+
+If stack is busy, nothing else runs, including setTimeout callbacks or UI updates.
+
+Long-running code blocks everything (single-threaded == one stack).
+
+Simple view:
+
+text
+Top   ┌───────────────┐  <- currently running function
+      │   functionC   │
+      ├───────────────┤
+      │   functionB   │
+      ├───────────────┤
+Bottom│   functionA   │
+      └───────────────┘
+Web APIs (browser environment)
+Web APIs are features provided by the browser, not JS itself.
+
+JS calls into these APIs; they run in the browser’s own threads.
+
+Examples:
+
+Timers: setTimeout, setInterval
+
+Network: fetch, XMLHttpRequest
+
+DOM: document.querySelector, addEventListener
+
+Misc: geolocation, localStorage, Canvas, etc.
+
+Key idea:
+
+text
+Your JS code  --->  Browser Web APIs
+          (request work; browser does it elsewhere)
+Task (macro) queue and microtask queue
+There are two main queues to understand:
+
+Macro task queue (often called “task queue”)
+
+Holds callbacks from:
+
+setTimeout, setInterval
+
+DOM events (click, keydown, etc.)
+
+Some older async APIs
+
+Microtask queue
+
+Holds callbacks from:
+
+Promise.then, catch, finally
+
+queueMicrotask
+
+Always drained before the next macro task.
+
+Event loop
+Event loop = scheduler that coordinates stack + queues.
+
+Core rule (simplified):
+
+If call stack is empty:
+
+Take all microtasks (promise callbacks, etc.) and run them (one by one).
+
+Then take one task from macro task queue and run it.
+
+Repeat forever.
+
+ASCII view:
+
+text
+          ┌──────────────┐
+          │  Call Stack  │
+          └──────┬───────┘
+                 │
+          Event Loop
+                 │
+   ┌─────────────┴─────────────┐
+   │                           │
+┌───────┐                  ┌──────────┐
+│Micro- │                  │ Macro    │
+│tasks  │                  │ tasks    │
+│(Prom.)│                  │(setTimeout,
+└───────┘                  │ events…) │
+                           └──────────┘
+Order:
+
+text
+while (true):
+  if stack empty:
+     run all microtasks
+     take one macro task and run it
+How setTimeout actually works
+Pseudocode mental model:
+
+js
+setTimeout(callback, delay);
+// 1. JS tells browser: "Run this callback after delay ms."
+// 2. Browser timer counts time in Web API land.
+// 3. When delay passes, browser pushes callback into macro task queue.
+// 4. Event loop will run it ONLY when call stack is empty
+//    and after all microtasks.
+Diagram:
+
+text
+JS: setTimeout(cb, 1000)
+      │
+      ▼
+  Web API (Timer)
+      │   after 1000 ms
+      ▼
+Macro task queue: [ cb ]
+      │
+      ▼   (when stack empty & after microtasks)
+Call stack: cb()
+Important: delay is minimum wait time, not guaranteed execution time.
+If stack is busy for 5 seconds, a setTimeout(..., 1000) callback runs after that, not at 1 second.
+
+Why async tasks can be “late”
+Example:
+
+js
+setTimeout(() => console.log("A"), 0);
+
+const start = Date.now();
+while (Date.now() - start < 3000) {
+  // Busy loop for ~3 seconds
+}
+
+console.log("B");
+Execution:
+
+setTimeout schedules callback in Web API.
+
+Timer finishes almost immediately, callback goes into macro task queue.
+
+But call stack is blocked by the while loop for ~3 seconds.
+
+Event loop cannot pull callback until stack is empty.
+
+Output order: "B" then "A" (after the loop), even though timeout was 0.
+
+Takeaway:
+
+Timers are not precise; they respect call stack + event loop.
+
+Promises vs setTimeout
+Promises use microtask queue, which runs before the next timer/event.
+
+Example:
+
+js
+console.log("1");
+
+setTimeout(() => console.log("2"), 0);
+
+Promise.resolve().then(() => console.log("3"));
+
+console.log("4");
+Order:
+
+1 (sync)
+
+4 (sync)
+
+3 (microtask)
+
+2 (macro task from setTimeout)
+
+Reason:
+
+text
+End of sync code:
+- Stack empty
+- Microtask queue: [promise callback]
+- Macro task queue: [setTimeout callback]
+
+Event loop:
+1. Run all microtasks -> logs "3"
+2. Take one macro task -> logs "2"
+Web APIs vs JS engine
+Clarify separation:
+
+text
++------------------------+
+|  JavaScript Engine     |
+|  - Call stack          |
+|  - Heap                |
++------------+-----------+
+             |
+             | calls into
+             v
++------------------------+
+|  Browser (Host)        |
+|  - Web APIs (timers,   |
+|    DOM, network, etc.) |
+|  - Schedules tasks     |
++------------------------+
+JS engine is single-threaded.
+
+Browser Web APIs can run work concurrently (e.g., network I/O).
+
+When Web API finishes, it schedules callbacks onto appropriate queue.
+
+Cheat-summary (copyable)
+text
+- JS is single-threaded: one call stack, one thing at a time.
+- Web APIs (timers, DOM, fetch) live in the browser, not in JS itself.
+- setTimeout/setInterval schedule callbacks into the macro task queue
+  AFTER at least the delay, not exactly at delay.
+- Event loop:
+  - When stack is empty:
+    1. Run all microtasks (Promise callbacks, queueMicrotask).
+    2. Take one macro task (setTimeout, events) and run it.
+- If the stack is busy, no callbacks run, so timers and events are delayed.
+- Promises (microtasks) run before timers/events (macro tasks).
+
+JS Modules: Export/Import
+Export Types
+Named exports (multiple per file):
+
+js
+// Inline
+export const PI = 3.14;
+export function add(a, b) { return a + b; }
+
+// Or at bottom
+const PI = 3.14;
+function add(a, b) { return a + b; }
+export { PI, add };
+
+// Re-export
+export { PI as CircleConst } from './math.js';
+Default export (one per file):
+
+js
+const defaultFunc = () => console.log("default");
+export default defaultFunc;
+
+// Or inline
+export default function multiply(a, b) { return a * b; }
+Import Syntax
+Named imports:
+
+js
+import { add, PI } from './math.js';
+// Alias with 'as'
+import { add as sum, PI as RADIUS } from './math.js';
+Default import:
+
+js
+import multiply from './math.js';
+// Mix default + named
+import multiply, { add } from './math.js';
+All imports:
+
+js
+import * as MathUtils from './math.js';
+MathUtils.add(1, 2); // Namespace
+Quick Rules
+text
+- Named: export { x }, import { x }
+- Default: export default x, import x
+- One default per file, unlimited named
+- 'as' renames: import { x as y }
+- Relative paths: './file.js' (no .js extension needed in modern bundlers)
+File example (math.js):
+
+js
+export const PI = 3.14;
+export function add(a, b) { return a + b; }
+export default function multiply(a, b) { return a * b; }
+Usage (main.js):
+
+js
+import multiply, { add, PI as RADIUS } from './math.js';
+console.log(add(1, 2));     // 3
+console.log(multiply(2, 3)); // 6
+console.log(RADIUS);         // 3.14
+
+
+Arrow functions : 
+const getMoneySpent = Amount => `Hey Tom , you spent ${Amount} ruppees`
+ Rest Parameter  ::  function setPermissions(permissionLevel, ...names) {
+    
+ }
