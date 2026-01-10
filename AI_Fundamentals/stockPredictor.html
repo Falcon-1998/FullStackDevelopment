@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dodgy Dave's Stock Predictions</title>
+  <link rel="stylesheet" href="stockPredictor.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="hero">
+      <div class="hero-title">
+        <span>Dodgy</span>
+        <span class="dave-name">Dave's</span>
+      </div>
+      <div class="hero-subtitle">
+        Stock Predictions
+      </div>
+    </header>
+
+    <main class="content">
+      <p class="intro-text">
+        Add up to 3 stock tickers below to<br />
+        get a super accurate stock<br />
+        predictions report 👇
+      </p>
+
+      <div class="ticker-input-row">
+        <input
+          type="text"
+          id="ticker-input"
+          class="ticker-input"
+          placeholder="MSFT"
+          maxlength="5"
+        />
+        <button id="add-ticker-btn" class="icon-btn">+</button>
+      </div>
+
+      <p class="tickers-label">
+        Your tickers will appear here...
+      </p>
+
+      <div id="tickers-list" class="tickers-list">
+        <!-- JS will inject ticker tags here -->
+      </div>
+
+      <button id="generate-report-btn" class="generate-btn">
+        GENERATE REPORT
+      </button>
+
+      <p class="disclaimer-small">
+        Always correct 15% of the time!
+      </p>
+
+      <p class="disclaimer-footer">
+        © This is not real financial advice!
+      </p>
+    </main>
+  </div>
+
+  <script src="stockPredictor.js"></script>
+</body>
+</html>
