@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f08b67, #f2c6a0);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Full app container */
+.app-container {
+  background: #f7f7f7;
+  width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  max-width: 100%;
+}
+
+/* Header */
+.hero {
+  background: #000;
+  color: #fff;
+  padding: 24px 16px 20px;
+  text-align: center;
+}
+
+.hero-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.dave-name {
+  font-style: italic;
+  transform: rotate(-3deg);
+}
+
+.hero-subtitle {
+  margin-top: 8px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/* Content */
+.content {
+  padding: 28px 32px 24px;
+  text-align: center;
+}
+
+.intro-text {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 26px;
+}
+
+.ticker-input-row {
+  display: flex;
+  margin: 0 auto 18px;
+  max-width: 320px;
+  border: 2px solid #444;
+  border-radius: 2px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.ticker-input {
+  flex: 1;
+  border: none;
+  padding: 12px 14px;
+  font-size: 16px;
+  outline: none;
+}
+
+.icon-btn {
+  width: 56px;
+  border: none;
+  background: #ffffff;
+  border-left: 2px solid #444;
+  font-size: 22px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.icon-btn:hover {
+  background: #f1f1f1;
+}
+
+.tickers-label {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.tickers-list {
+  min-height: 40px;
+  margin-bottom: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.generate-btn {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-radius: 2px;
+  background: #41e676;
+  color: #0b3b17;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-bottom: 14px;
+  transition: filter 0.15s, transform 0.05s;
+}
+
+.generate-btn:hover {
+  filter: brightness(1.05);
+}
+
+.generate-btn:active {
+  transform: scale(0.98);
+}
+
+.disclaimer-small {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.disclaimer-footer {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.ticker-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  background: #444;
+  color: white;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.ticker-remove {
+  margin-left: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
