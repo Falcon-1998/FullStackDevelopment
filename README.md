@@ -645,3 +645,28 @@ const getMoneySpent = Amount => `Hey Tom , you spent ${Amount} ruppees`
  Rest Parameter  ::  function setPermissions(permissionLevel, ...names) {
     
  }
+
+
+How to create a server in node ja : 
+import 'http' from 'node:http'
+const server = hhtp.createServer((req,res)=>{
+     res.setHeaders('Content-type', 'text/html')
+     res.end()
+}
+)
+ CORS = Cross Origin Resource Sharing 
+ Browser enforces the same-Origin policy by default, blocking requests from different origins (domain + protocol + port).
+ CORS is an opt-in mechanism that lets serveres Explicitly allow cross-origin access via http headers.
+
+ if(req.url === '/api' , req.method === 'POST')
+ for await (const chunk of req) { body += chunk}
+
+ So for node is designed in such a way that it separated headers from the body, so if we do direct access we can get headers and if we iterate we get the stream of body.
+
+ another way to do this is by req.on('data', (chunk) => {chunks.push(chunk)})
+                              req.on('end', ()=> const body = Buffer.concat(chunks).toString('utf8);)
+                              
+this can be further put inside a Promise
+
+JSON.stringify(data, null, 2) This gives us two space indentation,  this null here is called the replacer which is called to replace 
+the data here, bascially post processsing, a callback.

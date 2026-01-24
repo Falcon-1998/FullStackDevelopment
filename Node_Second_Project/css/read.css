@@ -1,0 +1,82 @@
+@import url("home.css"); /* reuse same base look if you prefer; or paste the shared pieces */
+
+/* If you don't want @import, copy the .page-bg, .panel, .panel-header, etc. from home.css */
+
+.sightings-list {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Headings at top */
+.panel-heading {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.heading-overline {
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.heading-main {
+  font-family: "Impact", "Anton", system-ui;
+  font-size: 26px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Cards */
+.sighting-card {
+  background: #fdfdfd;
+  border-radius: 12px;
+  padding: 18px 18px 12px;
+  margin-bottom: 14px;
+  color: #222;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+.sighting-meta {
+  margin-bottom: 8px;
+}
+
+.sighting-date {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.sighting-title {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.sighting-excerpt {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.sighting-full {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+/* Toggle button */
+.read-toggle-btn {
+  padding: 4px 0;
+  border: none;
+  background: none;
+  color: #555;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
