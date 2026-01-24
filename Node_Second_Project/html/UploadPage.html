@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From The Other Side – Add Sighting</title>
+  <link rel="stylesheet" href="/css/upload.css" /> <!-- ← changed from ../css/upload.css -->
+</head>
+<body>
+  <div class="page-bg">
+    <main class="panel">
+      <header class="panel-header">
+        <div class="panel-logo">🧛‍♀️</div>
+        <nav class="panel-nav">
+          <a href="/" class="nav-link">Home</a> <!-- ← changed from ./HomePage.html -->
+          <a href="/ReadPage.html" class="nav-link">Read</a> <!-- ← changed from ./ReadPage.html -->
+          <a href="/UploadPage.html" class="nav-link active">Upload</a> <!-- ← changed from ./UploadPage.html -->
+        </nav>
+      </header>
+
+      <section class="panel-heading">
+        <h2 class="heading-overline">FROM THE OTHER SIDE</h2>
+        <h1 class="heading-main">ADD SIGHTING</h1>
+      </section>
+
+      <section class="form-section">
+        <form id="sighting-form">
+          <label class="field-label" for="title">Title:</label>
+          <input
+            id="title"
+            name="title"
+            type="text"
+            class="field-input"
+            placeholder="A ghostly encounter"
+            required
+          />
+
+          <label class="field-label" for="datetime">Time/Date:</label>
+          <input
+            id="datetime"
+            name="datetime"
+            type="datetime-local"
+            class="field-input"
+            required
+          />
+
+          <label class="field-label" for="location">Location:</label>
+          <input
+            id="location"
+            name="location"
+            type="text"
+            class="field-input"
+            placeholder="London, UK"
+            required
+          />
+
+          <label class="field-label" for="details">Details:</label>
+          <textarea
+            id="details"
+            name="details"
+            class="field-textarea"
+            rows="5"
+            placeholder="I was trying to get to sleep when..."
+            required
+          ></textarea>
+
+          <button type="submit" class="submit-btn">
+            SUBMIT
+          </button>
+          <div id="form-message" class="form-message"></div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="/js/upload.js"></script> <!-- ← changed from ../js/upload.js -->
+</body>
+</html>

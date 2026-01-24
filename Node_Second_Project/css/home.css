@@ -1,0 +1,97 @@
+/* Global */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+/* Background gradient */
+.page-bg {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top left, #5f7cff, #1a1b3b);
+  padding: 20px;
+}
+
+/* Main panel */
+.panel {
+  width: 100%;
+  max-width: 420px;
+  min-height: 90vh;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  color: #f6f6f6;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.9));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  padding: 22px 22px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.panel-logo {
+  width: 40px;
+  height: 40px;
+  /* placeholder for candle icon if you add one */
+}
+
+.panel-nav .nav-link {
+  margin-left: 16px;
+  color: #f6f6f6;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 14px;
+}
+
+.panel-nav .nav-link.active {
+  font-weight: 600;
+}
+
+/* Hero content */
+.panel-hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-title {
+  font-family: "Impact", "Anton", system-ui;
+  letter-spacing: 2px;
+  font-size: 34px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.hero-tagline {
+  font-family: "Impact", "Anton", system-ui;
+  font-size: 18px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* Footer */
+.panel-footer {
+  margin-top: 40px;
+  font-size: 11px;
+  text-align: center;
+  color: #c6c6c6;
+}
