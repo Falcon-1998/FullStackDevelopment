@@ -15,7 +15,7 @@ export async function handlePost(req,res)
     const body = sanitizeInput(parserBody);
     const data = await getData();
     const id = data.length > 0 ? Math.max(...data.map(item => item.id)) + 1 : 1;
-    const newEntryObj = {id, ...JSON.parse(body)};
+    const newEntryObj = {id, ...body};
     data.push(newEntryObj);
     postData(data);
     eventEmitter.emit('newSightingEvent',newEntryObj.title, 'A new sighting has been reported.'
@@ -36,5 +36,5 @@ export function handleEvents(req,res)
         const randomIndex = Math.floor(Math.random() * data.length);
         const latestEntry = data[randomIndex];
         res.write(`data: ${JSON.stringify({event : 'news-update', stroy: latestEntry.title})}\n\n`);
-   }, 2000);
+   }, 5000);
 }
