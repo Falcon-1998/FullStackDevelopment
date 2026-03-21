@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect, useRef } from 'react';
 import  RecipeContent  from './recipeContent.jsx';
 import  IngredientList from './IngredientList.jsx';
 import HeaderMain from './HeaderMain.jsx';
@@ -20,12 +20,22 @@ export default function Main() {
         const recipeData = await getRecipefromAPI(ingredientList);
         setRecipe(recipeData);
     }
-
+    const recipeSection = useRef(null);
+    useEffect( () => {
+        if (recipe && recipeSection.current) {
+            recipeSection.current.scrollIntoView({ behavior: 'smooth' });
+        }
+        return () => {
+            if (recipeSection.current) {
+                recipeSection.current.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+    }, [recipe]);
     return (
         <main>
             <HeaderMain />
             <IngredientForm handleAddIngredient={handleAddIngredient} />
-            {ingredientList.length > 0 && <IngredientList ingredientList={ingredientList} onGetRecipe={handleGetRecipe} />}
+            {ingredientList.length > 0 && <IngredientList ref={recipeSection} ingredientList={ingredientList} onGetRecipe={handleGetRecipe} />}
             {recipe && <RecipeContent recipeData={recipe} onBack={() => setRecipe("")} /> }
         </main>
     );
