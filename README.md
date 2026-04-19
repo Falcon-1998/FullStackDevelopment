@@ -670,3 +670,58 @@ this can be further put inside a Promise
 
 JSON.stringify(data, null, 2) This gives us two space indentation,  this null here is called the replacer which is called to replace 
 the data here, bascially post processsing, a callback.
+
+
+
+
+TypeScript fundamentals : 
+Core Utility Types
+1. Object Manipulation
+These are the most commonly used for adjusting properties in interfaces and object types. 
+OneUptime
+OneUptime
+ +1
+Partial<Type>: Makes all properties in Type optional.
+Use case: Partial updates for an object (e.g., a "Patch" API request).
+Required<Type>: The opposite of Partial; makes all optional properties required.
+Use case: Ensuring all configuration settings are present before saving.
+Readonly<Type>: Makes all properties immutable.
+Use case: Protecting configuration objects from being changed at runtime.
+Pick<Type, Keys>: Creates a new type by selecting specific property keys.
+Use case: Selecting only "id" and "name" from a large User object for a display list.
+Omit<Type, Keys>: Creates a new type by removing specific property keys.
+Use case: Stripping sensitive fields like "password" from a User object before sending it to a frontend.
+Record<Keys, Type>: Constructs an object type with specific keys and a uniform value type.
+Use case: Creating a dictionary of users where the key is a string ID and the value is a User object. 
+TypeScript
+TypeScript
+ +11
+2. Union Manipulation
+These filter or narrow down members of a union type. 
+Mimo
+Mimo
+ +1
+Exclude<UnionType, ExcludedMembers>: Removes types from a union that are assignable to ExcludedMembers.
+Extract<Type, Union>: Keeps only the types from Type that are also in Union.
+NonNullable<Type>: Removes null and undefined from a type. 
+W3Schools
+W3Schools
+ +4
+3. Function & Class Types
+These extract metadata from function signatures or class constructors. 
+Mimo
+Mimo
+ +1
+ReturnType<Type>: Extracts the return type of a function.
+Parameters<Type>: Extracts the parameter types of a function as a tuple.
+Awaited<Type>: Unwraps a Promise to get its resolved value.
+InstanceType<Type>: Obtains the instance type of a constructor function. 
+TypeScript
+TypeScript
+ +5
+String Transformation Utilities
+TypeScript also provides utilities to manipulate string literal types: 
+Convex
+Convex
+ +1
+Uppercase<S>, Lowercase<S>, Capitalize<S>, and Uncapitalize<S>. 
